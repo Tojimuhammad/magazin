@@ -6,11 +6,13 @@ class RootCategory(models.Model):
     def __str__(self):
         return self.name
 
+
 class SubCategory(models.Model):
     name = models.CharField(max_length=255)
     root_category = models.ForeignKey(RootCategory, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -35,11 +37,13 @@ class Phone(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+
 class Cart(models.Model):
     product = models.ForeignKey(Phone, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
+
 
 class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -52,6 +56,7 @@ class Order(models.Model):
         (3, 'yuborildi'),
         (4, 'yetkazildi')
     ], default=1)
+
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Phone, on_delete=models.CASCADE)

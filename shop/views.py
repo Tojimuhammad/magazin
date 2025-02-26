@@ -59,6 +59,7 @@ def create_cart_view(request, pk):
     )
     return Response('Success')
 
+
 @api_view(['GET'])
 def cart_view(request):
     carts = Cart.objects.filter(user=request.user)
@@ -92,6 +93,7 @@ def create_order_view(request):
         order.save()
     Cart.objects.filter(user=user).delete()
     return Response(OrderSerializer(order).data)
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

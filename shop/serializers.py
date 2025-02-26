@@ -7,15 +7,18 @@ class RootCategorySerializer(ModelSerializer):
         model = RootCategory
         fields = '__all__'
         
+
 class SubCategorySerializer(ModelSerializer):
     class Meta:
         model = SubCategory
         fields = '__all__'
 
+
 class CategorySerializer(ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'
+
 
 class PhoneSerializer(ModelSerializer):
     # category = CategorySerializer()
